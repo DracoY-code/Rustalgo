@@ -6,10 +6,10 @@ edition = "2018"
 description = "Algorithm implementation in Rust"
 
 readme = "./README.md"
-repository = ""
-license = "MIT"
-license-file = ""
+repository = "https://github.com/DracoY-code/Rustalgo"
+license-file = "./LICENSE"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+rand = "0.7.3"
