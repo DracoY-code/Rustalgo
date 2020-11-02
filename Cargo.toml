@@ -1,0 +1,15 @@
+[package]
+name = "rustalgo"
+version = "0.1.0"
+authors = ["Red <draco882003@gmail.com>"]
+edition = "2018"
+description = "Algorithm implementation in Rust"
+
+readme = "./README.md"
+repository = ""
+license = "MIT"
+license-file = ""
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
