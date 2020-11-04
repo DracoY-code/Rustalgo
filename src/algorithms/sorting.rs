@@ -7,7 +7,8 @@ mod tests {
     fn sort_check() {
         let mut arr: [u32; 10] = [0; 10];
         randomizer::rand_arr(&mut arr);
-        merge::sort(&mut arr);
+        println!("{:?}", arr);
+        quick::sort(&mut arr);
         println!("{:?}", arr);
     }
 }
@@ -33,20 +34,15 @@ pub mod bubble {
 }
 
 pub mod insertion {
-    pub fn sort<T: PartialOrd + Copy>(arr: &mut [T]) {
+    pub fn sort<T: Ord>(arr: &mut [T]) {
         let n = arr.len();
         
         for i in 1..n {
-            let key = arr[i];
-            let mut j = i - 1;
-
-            while arr[j] > key {
-                arr[j+1] = arr[j];
-                if j == 0 { break; }
+            let mut j = i;
+            while j > 0 && arr[j] < arr[j-1] {
+                arr.swap(j, j-1);
                 j -= 1;
             }
-            
-            arr[j] = key
         }
     }
 }
@@ -141,35 +137,34 @@ pub mod shell {
 }
 
 pub mod quick {
-    pub fn sort<T: PartialOrd + Copy>(
-        arr: &mut [T],
-        low: usize,
-        high: usize
-    ) {
-        if low >= high { return; }
+    pub fn sort<T: Ord + Copy>(arr: &mut [T]) {
+        let p = partition(arr);
         
-        let p = partition(arr, low, high);
-
-        sort(arr, low, (p-1) as usize);
-        sort(arr, (p+1) as usize, high);
-    }
-
-    fn partition<T: PartialOrd + Copy>(
-        arr: &mut [T],
-        low: usize,
-        high: usize
-    ) -> isize {
-        let mut i = low;
-        let pivot = arr[high];
-
-        for j in low..high {
-            if arr[j] < pivot {
-                arr.swap(i, j);
-                i += 1;
-            }
+        if arr[..p].len() > 1 {
+            sort(&mut arr[..p]);
         }
 
-        arr.swap(i, high);
-        i as isize
+        if arr[p+1..].len() > 1 {
+            sort(&mut arr[p+1..]);
+        }
+    }
+
+    fn partition<T: Ord + Copy>(arr: &mut [T]) -> usize {
+        let p = arr[0];
+        let mut i = 1;
+        let mut j = arr.len() - 1;
+
+        loop {
+            while i < arr.len() && arr[i] <= p { i += 1; }
+
+            while j > 0 && arr[j] >= p { j -= 1; }
+            
+            if i >= j { break; }
+
+            arr.swap(i, j);
+        }
+        
+        arr.swap(0, j);
+        j
     }
 }

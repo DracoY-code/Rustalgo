@@ -31,3 +31,13 @@ pub mod randomizer {
         }
     }
 }
+
+use std::{io::*, fmt};
+
+pub fn input(message: &'_ impl fmt::Display) -> String {
+    print!("{}", message);
+    stdout().flush().expect("Error while flushing to stdout");
+    let mut line = String::new();
+    stdin().read_line(&mut line).expect("Error while reading stdin");
+    line
+}
