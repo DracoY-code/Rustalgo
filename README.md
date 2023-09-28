@@ -1,19 +1,21 @@
 # Algorithms Implemented in Rust <img alt="ferris" src="https://miro.medium.com/max/1200/0*sDWRBb3SeZ9h6cSz.png" width="50" align="center" />
 
-* __Recursive__
-    * [Factorial][factorial]
-    * [Fibonacci][fibonacci]
-* __Searching__
-    * [Linear Search][linear]
-    * [Binary Search][binary]
-    * [Jump Search][jump]
-* __Sorting__
-    * [Bubble Sort][bubble]
-    * [Insertion Sort][insertion]
-    * [Selection Sort][selection]
-    * [Merge Sort][merge]
-    * [Shell Sort][shell]
-    * [Quick Sort][quick]
+## Recursive
+1. [Factorial][factorial]
+2.  [Fibonacci][fibonacci]
+
+## Searching
+1. [Linear Search][linear]
+2. [Binary Search][binary]
+3. [Jump Search][jump]
+
+## Sorting
+1. [Bubble Sort][bubble]
+2. [Insertion Sort][insertion]
+3. [Selection Sort][selection]
+4. [Merge Sort][merge]
+5. [Shell Sort][shell]
+6. [Quick Sort][quick]
 
 [factorial]: https://en.wikipedia.org/wiki/Factorial
 [fibonacci]: https://en.wikipedia.org/wiki/Fibonacci_number
